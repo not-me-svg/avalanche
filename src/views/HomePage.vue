@@ -5,39 +5,39 @@
                 align-items-center
                 justify-content-center">
 
-    <Overlay v-if="!playing">
+    <OverlayComp v-if="!playing">
       <div class="overlay-content position-relative">
           <h2 class="overlay-heading">Press start to begin</h2>
       </div>
-    </Overlay>
+    </OverlayComp>
 
-    <Overlay v-if="playing && paused">
+    <OverlayComp v-if="playing && paused">
       <div class="overlay-content position-relative">
           <h2 class="overlay-heading">Game Paused</h2>
       </div>
-    </Overlay>
+    </OverlayComp>
 
-    <Overlay v-if="playing && completed">
+    <OverlayComp v-if="playing && completed">
       <div class="overlay-content position-relative">
           <h2 class="overlay-heading">🎉 Hooray! You did it! 🎉</h2>
           <h4 class="overlay-score">Your score: {{ playerScore }}</h4>
       </div>
-    </Overlay>
+    </OverlayComp>
 
     <div class="homepage-cards-grid position-relative" v-if="games.length">
-      <Card v-for="game in games" :key="game.id" :game="game" @click="flipCard(game)"/>
+      <CardComp v-for="game in games" :key="game.id" :game="game" @click="flipCard(game)"/>
     </div>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import Overlay from '@/components/overlay.vue';
-import Card from '@/components/card.vue';
+import OverlayComp from '@/components/overlay.vue';
+import CardComp from '@/components/card.vue';
 
 export default {
   name: 'HomePage',
-  components: { Card, Overlay },
+  components: { CardComp, OverlayComp },
   async mounted() {
     await this.$store.dispatch('fetchGames');
   },

@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Card',
+  name: 'CardComp',
   props: {
     game: {
       type: Object,

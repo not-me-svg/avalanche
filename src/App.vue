@@ -6,7 +6,7 @@
       <h1 class="sidebar-heading">Memory game</h1>
 
       <div v-if="!isRanking">
-        <Timer v-if="rendered" :paused="paused || completed" />
+        <TimerComp v-if="rendered" :paused="paused || completed" />
 
         <button v-if="!playing" class="action-btn d-block" @click="startGame">
           Start Game
@@ -40,12 +40,12 @@
 
 <script>
 import { mapState, mapGetters, mapActions } from 'vuex';
-import Timer from '@/components/timer.vue';
+import TimerComp from '@/components/timer.vue';
 
 export default {
   name: 'App',
   components: {
-    Timer,
+    TimerComp,
   },
   data() {
     return {

@@ -9,7 +9,7 @@
 <script>
 let interval = null;
 export default {
-  name: 'Timer',
+  name: 'TimerComp',
   props: {
     paused: {
       type: Boolean,
